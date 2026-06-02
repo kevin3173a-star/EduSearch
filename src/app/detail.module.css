@@ -1,0 +1,410 @@
+.page{
+    /* display: flex; */
+    /* flex:1;
+    justify-content: center;
+    align-items: center; */
+    margin:0 auto;
+}
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap:20px;
+    /* padding-bottom:650px; */
+    position: relative;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background-color: #fff;
+}
+.main > svg{
+    position:absolute;
+    right:0;
+    top:40px;
+    width: 25px;
+    height: 25px;
+}
+
+/* 메인 검색창 */
+.main form{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin:30px auto;
+    position: relative;
+}
+
+.main form svg:nth-of-type(1){
+    position: absolute;
+    left:10px;
+}
+.helpContainer{
+    position: absolute;
+    right:40px;
+    top:12px;
+}
+
+.helpContainer svg{
+    
+    color:#979797;
+}
+.helpPopup{
+    background-color: rgba(255, 255, 255);
+    box-shadow:0 8px 10px rgba(0,0,0,0.15);
+    width: 240px;
+    height: 80px;
+    position:absolute;
+    right:20px;
+    top:20px;
+    border-radius: 20px 0 20px 20px;
+    border: 1px solid #e6e6e6;
+    padding:10px;
+    color: #3d3d3d;
+    /* display: none; */
+    font-size: 13px;
+
+}
+.main form input{
+    padding-left: 30px;
+}
+
+.main form input{
+    width: 500px;
+    border-radius: 20px;
+    height: 40px;
+    border:1px solid rgb(230, 230, 230);
+    padding:20px 35px;
+    /* padding:20px; */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.main form input:focus-visible{
+    outline:none;
+}
+.main form input:focus{
+     border: 1px solid rgb(177, 177, 177)
+}
+
+/* 강좌 정보 */
+.info{
+    display: flex;
+    align-items: flex-start;/* 위쪽기준 정렬, 자기 높이만큼만 사용 */
+}
+
+/* 강좌 기본 정보(좌측) */
+.basicInfo{
+    background-color: #fafafa;
+    padding:20px;
+    border:1px solid rgb(230, 230, 230);
+    border-radius: 20px;
+    position: fixed;
+    top:102px;
+    right:calc(100vw-439px);
+    margin-right:20px;
+    width: 342px;
+}
+.basicInfo img{
+    width: 300px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.basicInfoTitle h3{
+    font-size:18px;
+    padding:5px 0;
+}
+.basicInfoTitle p{
+    font-size:14px;
+    color:#6e6e6e;
+}
+
+/* 강좌 5개 정보 */
+.basicInfoConts{
+    padding-top:20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.basicInfoConts .row{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.basicInfoConts .row .label{
+    color: #6e6e6e;
+    font-size: 14px;
+    width: 100px;
+}
+.basicInfoConts .row .value{
+    font-size: 14px;
+}
+
+/* 강좌 수강신청 버튼 */
+.basicInfo a{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    border:none;
+    background-color: #4d79ff;
+    color:#fff;
+    padding:10px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top:20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* 강좌 상세 정보(우측) */
+.detailInfo{
+    margin-left:360px;
+    width: 666px;
+}
+@media (max-width:1100px){
+    .detailInfo{
+        width:auto;
+    }
+}
+.detailInfo1{
+    background-color: #fafafa;
+    padding:20px;
+    border:1px solid rgb(230, 230, 230);
+    border-radius: 20px;
+}
+.detailInfo1Descript{
+    padding-bottom: 30px;
+}
+.detailInfo1Descript p{
+    padding-top:10px;
+    font-size: 14px;
+}
+.detailInfo1Curri h4{
+    padding-bottom: 10px;
+}
+.detailInfo1CurriConts{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.detailInfo1CurriCont{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.detailInfo1CurriCont p:nth-of-type(2){
+    color: #6e6e6e;
+}
+.detailInfoTeacherContainer{
+    background-color: #f0f0f0;
+    padding:20px;
+    border:1px solid rgb(230, 230, 230);
+    border-radius: 20px;
+}
+
+.detailInfoReviewResult{
+    background-color: #f0f0f0;
+    padding:20px;
+    border:1px solid rgb(230, 230, 230);
+    border-radius: 20px;
+}
+
+.detailInfoReviewCont1{
+    background-color: #fafafa;
+    padding:20px;
+    border:1px solid rgb(230, 230, 230);
+    border-radius: 20px;
+}
+
+/* 강사 소개 */
+.detailInfoTeacher{
+   padding-top:20px;
+} 
+.detailInfoTeacher h4{
+   padding-bottom:10px; 
+}
+.detailInfoTeacherContainer{
+    display: flex;
+    background-color: #fafafa;
+}
+.detailInfoTeacherContainer div:nth-of-type(1){
+    background-color: #ffffff;
+    border-radius:40px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+.detailInfoTeacherCont{
+    padding-left:20px;
+}
+ .detailInfoTeacherCont b{
+    padding-bottom:3px;
+    display: inline-block;
+}
+.detailInfoTeacherCont p{
+    font-size: 14px;
+    color:#6e6e6e;
+}
+.detailInfoTeacherCont p:nth-of-type(2){
+    padding-top:10px;
+}
+
+/* 수강 후기 */
+.detailInfoReview{
+    padding-top:20px;
+    padding-bottom:50px;
+}
+.detailInfoReview h4{
+   padding-bottom:10px; 
+}
+.detailInfoReviewContainer{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+.detailInfoReviewResult{
+    background-color:#fafafa;
+    display: flex;
+    width: 100%;
+}
+.detailInfoReviewResultAll{
+    margin:0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top:5px;
+}
+.detailInfoReviewResultAll b{
+    font-size: 22px;
+    padding-bottom:5px;
+}
+.detailInfoReviewResultAll p{
+    color: #6e6e6e;
+    font-size: 12px;
+}
+.detailInfoReviewResultAll p:nth-of-type(2){
+    padding-top:10px;
+}
+.detailInfoReviewResultGraph{
+    width: 50%;
+    display: flex;
+}
+.detailInfoReviewResultGraphScore{
+    color:#6e6e6e;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+}
+.detailInfoReviewResultGraphBar{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    justify-content:center;
+    padding-left:10px;
+}
+.detailInfoReviewResultGraphBar p{
+    height:15px;
+    margin:0;
+    background:#cfcfcf;
+    border-radius:999px;
+}
+.detailInfoReviewResultGraphPercent{
+    color:#6e6e6e;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:12px;
+}
+
+/* 개인 리뷰 */
+.detailInfoReviewCont1{
+    display: flex;
+}
+.detailInfoReviewCont1Name{
+    background-color: #ffffff;
+    border-radius:40px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+.detailInfoReviewCont1Coment{
+    padding-left:20px;
+}
+.detailInfoReviewCont1Coment div:nth-of-type(1){
+    display: flex;
+}
+.detailInfoReviewCont1Coment div:nth-of-type(1) p{
+    align-items: center;
+    display: flex;
+    padding-left:20px;
+    padding-top:1px;
+    font-size: 14px;
+    color:#6e6e6e;
+}
+.detailInfoReviewCont1Coment >p{
+    padding-top:10px;
+    font-size: 14px;
+}
+@media (max-width:1000px){
+    body{
+        padding:0 10px;
+    }
+}
+@media (max-width:750px){
+    
+    .main form{
+        /* width:100%; */
+        /* padding:0 10px; */
+    }
+    .main form input{
+        width:60vw;
+        position: relative;
+    }
+    .main form >svg:nth-of-type(1){
+        position: absolute;
+        left:10px;
+    }
+    .helpContainer {
+        position:absolute;
+        top:12px;
+        /*  right:130px;*/
+        transform:translateY(-50%);
+
+    }
+    .info{
+        flex-direction: column;
+    }
+    .basicInfo{
+        background-color: #f0f0f0;
+        padding:20px;
+        border:1px solid rgb(230, 230, 230);
+        border-radius: 20px;
+        position:static;
+        width: 100%;
+        margin-left: 0;
+        margin-right:0;
+        margin-bottom:20px;
+    }
+    .basicInfo img{
+        width: 100%;
+        object-fit: cover;
+    }
+    .detailInfo{
+        margin-left:0;
+    }
+}
+
