@@ -1,4 +1,6 @@
+
 import "./globals.css";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "EduSearch",
@@ -9,7 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {children}
+        <Suspense fallback={<div>로딩중...</div>}>
+          {children}
+        </Suspense>
       </body>
     </html>
   );
