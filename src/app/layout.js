@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Suspense fallback={<div>로딩중...</div>}>
+        <Suspense fallback={null}>
           {children}
         </Suspense>
       </body>
