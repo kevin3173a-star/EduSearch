@@ -7,12 +7,12 @@ import eduData from '@/app/edu.json';
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
-console.log(eduData)
+/* console.log(eduData) */
 
 export default function Home() {
   const [writeKeyword,setWriteKeyword]=useState('')/* 입력값 */
-  const [enterKeyword,setEnterKeyword]=useState('')/* 엔터친 입력값(보내질 값) */
-  
+  const [enterKeyword,setEnterKeyword]=useState(null)/* 엔터친 입력값(보내질 값) */
+
   const KWref=useRef();/* 키워드 선택시 커서 생기게  */
  
   /* const filterData=eduData[enterKeyword]; filterData그대로는 배열이 아닌 객체라 map을 못돌림 */
@@ -26,8 +26,11 @@ export default function Home() {
   );
 
   let filterData = [];
-
-  if (eduData[enterKeyword]) {
+  
+  if (enterKeyword?.trim()===""){
+    filterData=[];
+  }
+  else if (eduData[enterKeyword]) {
     // 프론트엔드, 디자인 같은 카테고리 검색
     filterData = Object.entries(eduData[enterKeyword]).map(([title, item]) => ({
       ...item,
@@ -46,21 +49,34 @@ export default function Home() {
 
   const searchParams=useSearchParams();
 
+   //처음에 키워드 4개중 랜덤 하나 출력
+  const CTGR=['프론트엔드', '디자인', '데이터 분석', '비즈니스']
+  
   useEffect(()=>{
     const keyword = searchParams.get('keyword');
-    if(keyword){
+    if(keyword || keyword===""){
       setWriteKeyword(keyword);
       setEnterKeyword(keyword)
+    } else{
+      const randomCTGR = CTGR[Math.floor(Math.random()*CTGR.length)]
+      setWriteKeyword(randomCTGR);
+      setEnterKeyword(randomCTGR)
     }
+
   },[searchParams])
   
   const [helpPopupOpen,setHelpPopupOpen]=useState();
+
   return (
     <div className={styles.page}>
       <div className={styles.circle}></div>
       <div className={styles.mainContainer}>
         <main className={styles.main}>
-          <p className={styles.gradientText}>
+          <p 
+            className={styles.gradientText} 
+            onClick={()=>location.href='/'}
+            style={{cursor:"pointer"}}
+            >
             원하는 교육자료를 바로 찾아보세요!
           </p>
           <form>
@@ -72,9 +88,10 @@ export default function Home() {
               onKeyDown={(e)=>{
                 if(e.key==="Enter"){/* 엔터쳐야지 입력값 넘어가게 */
                   e.preventDefault();
-                  setEnterKeyword(writeKeyword)
-                  console.log(writeKeyword)
-                  router.push(`/?keyword=${encodeURIComponent(writeKeyword)}`)
+                  const KW=writeKeyword?.trim();
+                  setEnterKeyword(KW)
+                  console.log(KW)
+                  router.push(`/?keyword=${encodeURIComponent(KW)}`)
                 }
                 console.log(e.key)/* 누른 키보드 값 */
                 /*console.log(e.target)
@@ -132,7 +149,7 @@ export default function Home() {
             )
           }
           {
-            enterKeyword && !filterData.length && (
+            enterKeyword !==null && !filterData.length && (
               <div className={styles.noResult}>
                 <h3>'{enterKeyword}' 에 대한 검색 결과가 없습니다.</h3>
                 <p>
