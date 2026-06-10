@@ -58,8 +58,8 @@
     width: 240px;
     height: 80px;
     position:absolute;
-    right:20px;
-    top:20px;
+    right:25px;
+    top:29px;
     border-radius: 20px 0 20px 20px;
     border: 1px solid #e6e6e6;
     padding:10px;
@@ -67,6 +67,9 @@
     /* display: none; */
     font-size: 13px;
 
+}
+.helpContainer svg:hover{
+    color:rgb(82, 82, 82);
 }
 .main form input{
     padding-left: 30px;
